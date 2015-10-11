@@ -20,6 +20,7 @@ namespace Catalog.Models
         public string Content { get; set; } // Содержание статьи
         public DateTime PublishDate { get; set; } // Дата публикации
         public DateTime EditDate { get; set; } // Дата редактирования
+        public virtual Section Section { get; set; }
                
     }
 }
