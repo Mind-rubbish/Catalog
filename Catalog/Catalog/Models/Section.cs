@@ -13,13 +13,15 @@ namespace Catalog.Models
 
         public int? ParentId { get; set; } //Идентификатор родительского раздела
 
-        
+
         [Remote("CheckTitle", "Sections", ErrorMessage = "Такая секция уже существует")] // Валидация на уникальность заголовка
         [StringLength(80, ErrorMessage = "Количество символов не должно превышать 80 символов")]
         public string Title { get; set; } //Заголовок раздела
 
         [StringLength(2000, ErrorMessage = "Количество символов не должно превышать 2000")]
         public string Description { get; set; } //Описание раздела
+
+        public virtual ICollection<Article> Articles { get; set; } = new List<Article>(); // Чтобы знать, какие статьи относятся к этому разделу
 
         public bool IsDeleted { get; set; } //Флаг удаления
     }
