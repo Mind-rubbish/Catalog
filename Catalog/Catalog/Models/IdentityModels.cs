@@ -20,7 +20,8 @@ namespace Catalog.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-         
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Article> Articles { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
